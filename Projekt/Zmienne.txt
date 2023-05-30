@@ -1,0 +1,29 @@
+1 pomysł: 
+Y - Przecietne wynagrodzenie brutto (miesieczne/sa powiaty) 
+
+
+X - Liczba lat edukacji/Poziom edukacji(skolaryzacja) 
+X - Stopa bezrobocia
+X - Stopa inflacjii 
+X - Stopa imigracji/emigracji 
+X - Stopien robotyzacjii
+X - Poziom emisji CO2
+X - PKB ?
+X - Wskazniki cen
+X - Poziom zadluzenia
+
+
+
+2 pomysł: 
+Y - Liczba sprzedanych mieszkan (miesieczne/ sa powiaty)
+
+
+X - Przecietne wynagrodzenie brutto (miesieczne/sa powiaty)
+X - Ceny mieszkan 
+X - Powierzchnia mieszkan 
+X - Stopa bezrobocia
+X - Przyrost naturalny
+X - Poziom urbanizacji 
+X - Wskaznik migracji 
+X - Wydatki na budownictwo 
+
