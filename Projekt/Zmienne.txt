@@ -1,16 +1,32 @@
 1 pomysł: 
-Y - Przecietne wynagrodzenie brutto (miesieczne/sa powiaty) 
+Y - Przecietne wynagrodzenie brutto (miesieczne/sa powiaty)              - Jest
+[zł] przecietne miesieczne wynagrodzenie brutto 
+
+X - Poziom edukacji(skolaryzacja)		-Nie to co chcialem  - Jest
+Wspólczynnik skolaryzacji netto, czyli to relacja liczby osób uczących się (stan na początku roku szkolnego) na danym poziomie kształcenia (w danej grupie wieku) do liczby ludności (stan w dniu 31 grudnia) w grupie wieku określonej jako odpowiadająca temu poziomowi nauczania.
+
+X - Stopa bezrobocia                            			- Jest
+To jest stopa bezrobocia rejestrowanego, czyli obliczono jako stosunek liczby bezrobotnych zarejestrowanych do liczby cywilnej ludności aktywnej zawodowo (ogółem oraz danej grupy), tj. bez osób odbywających czynną służbę wojskową
+
+X - Stopa osob poszkodowanych w wypadkach przy pracy 			- Jest
+To jest liczba osob poszkodowanych na kazde 1000 osob pracujacych 
+
+X - Poziom emisji CO2					-Jest 
+Emisja ogólna na km^2 [t]
+
+X - Nakłady inwestycyjne 				- Jest
+Nakłady inwestycyjne w przedsiebiorstwach na 1 mieszkanca 
+
+X - Współczynnik zawartych małżeństw 			- Jest	
+Małżeństwa zawartych w ciągu roku na 1000 ludności
 
 
-X - Liczba lat edukacji/Poziom edukacji(skolaryzacja) 
-X - Stopa bezrobocia
-X - Stopa inflacjii 
-X - Stopa imigracji/emigracji 
-X - Stopien robotyzacjii
-X - Poziom emisji CO2
-X - PKB ?
-X - Wskazniki cen
-X - Poziom zadluzenia
+X - Stopa inflacjii 				- Sa tylko wojewodztwa
+X - Stopa imigracji/emigracji                  - Zakłócone ukraina !!! 
+X - Stopien robotyzacjii			- Nie ma na Gusie
+X - PKB 					- Sa tylko wojewodztwa
+X - Wskazniki cen	
+X - Poziom zadluzenia				- Nie ma na Gusie
 
 
 
