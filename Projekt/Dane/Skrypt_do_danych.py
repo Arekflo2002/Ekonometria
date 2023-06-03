@@ -1,5 +1,6 @@
 import pandas as pd 
 import numpy as np
+import matplotlib.pyplot as plt
 
 """ 
     Wczytywanie danych
@@ -30,18 +31,24 @@ wynagrodzenie = wynagrodzenie.drop(wynagrodzenie.columns[-1],axis=1)
     Wyrzucanie braków w danych oraz łączenie w jedna tabele 
  """
 
-lista = [malzenstwa,naklady_inwestycyjne,poszkodowani,skolaryzacja,bezrobocie,wynagrodzenie]
+lista = [emisja,malzenstwa,naklady_inwestycyjne,poszkodowani,skolaryzacja,bezrobocie]
 
-tabela_pol = emisja
+tabela_pol = wynagrodzenie
 
 for element in lista:
     tabela_pol = pd.merge(tabela_pol, element,on=["Kod","Nazwa"])
 
 tabela_pol = tabela_pol.dropna(subset=tabela_pol.columns)
-tabela_pol.to_excel("Projekt\\Dane\\tabela_polaczona.xlsx",index=False)
+# tabela_pol.to_excel("Projekt\\Dane\\tabela_polaczona.xlsx",index=False)
 
-x = tabela_pol
-print(len(x))
-print(x.columns)
-print(x.head())
+tabela_pol = tabela_pol.drop('Kod',axis=1)
+tabela_pol = tabela_pol.drop('Nazwa',axis=1)
+tabela_pol.columns = ['Y','X1','X2','X3','X4','X5','X6']
+tabela_pol = tabela_pol.replace(',','.',regex = True)
+tabela_pol = tabela_pol.astype(float)
 
+scatter = pd.plotting.scatter_matrix(tabela_pol,marker = 'o',s=12,hist_kwds={'bins':20},figsize=(9,8),alpha=0.4)
+for ax in scatter.ravel():
+    ax.set_xticks([])
+    ax.set_yticks([])
+plt.show()
