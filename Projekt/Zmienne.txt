@@ -17,8 +17,8 @@ Emisja ogólna na km^2 [t]
 X - Nakłady inwestycyjne 				- Jest
 Nakłady inwestycyjne w przedsiebiorstwach na 1 mieszkanca 
 	
-X - Przyrost naturalny 		- Jest	
-Przyrost naturalny(liczba urodzen - liczba zgonow) na 1000 ludnosci [osoby]
+X - Przestepstwa popelnione na 1000 mieszkancow
+
 
 X - Stopa inflacjii 				- Sa tylko wojewodztwa
 X - Stopa imigracji/emigracji                  - Zakłócone ukraina !!! 

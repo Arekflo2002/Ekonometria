@@ -9,8 +9,8 @@ import matplotlib.pyplot as plt
 emisja = pd.read_csv("Projekt\Dane\Emisja_zanieczyszczenSO2.csv",sep=';')
 emisja = emisja.drop(emisja.columns[-1],axis=1)
 
-przyrost = pd.read_csv("Projekt\Dane\Przyrost_naturalny.csv",sep=";")
-przyrost = przyrost.drop(przyrost.columns[-1],axis=1)
+przestepstwa = pd.read_csv("Projekt\Dane\Przestepstwa.csv",sep=";")
+przestepstwa = przestepstwa.drop(przestepstwa.columns[-1],axis=1)
 
 naklady_inwestycyjne = pd.read_csv("Projekt\\Dane\\Nakłady.csv",sep=";")
 naklady_inwestycyjne = naklady_inwestycyjne.drop(naklady_inwestycyjne.columns[-1],axis=1)
@@ -31,7 +31,7 @@ wynagrodzenie = wynagrodzenie.drop(wynagrodzenie.columns[-1],axis=1)
     Wyrzucanie braków w danych oraz łączenie w jedna tabele 
  """
 
-lista = [emisja,przyrost,naklady_inwestycyjne,poszkodowani,wynalazki,bezrobocie]
+lista = [emisja,przestepstwa,naklady_inwestycyjne,poszkodowani,wynalazki,bezrobocie]
 
 tabela_pol = wynagrodzenie
 
@@ -57,3 +57,4 @@ plt.show()
 tabela_pol.plot(kind='box', subplots=True,layout=(3,3),sharex=False,sharey=False)
 plt.tight_layout()
 plt.show()
+
