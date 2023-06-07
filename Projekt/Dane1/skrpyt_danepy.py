@@ -25,24 +25,24 @@ tabela_pol = tabela_pol.astype(float)
 tabela_pol.columns = ['Y']
 tabela_pol = tabela_pol['Y']
 
-tabela_pol = pd.DataFrame(oczyszczanie_danych(tabela_pol),columns=['Y'])
-tabela_pol = tabela_pol['Y']
-print(tabela_pol)
+# tabela_pol = pd.DataFrame(oczyszczanie_danych(tabela_pol),columns=['Y'])
+# tabela_pol = tabela_pol['Y']
+# print(tabela_pol)
 
-kde = gaussian_kde(tabela_pol.ravel())
-x = np.linspace(tabela_pol.min(), tabela_pol.max(), 100)
-density = kde(x)
+# kde = gaussian_kde(tabela_pol.ravel())
+# x = np.linspace(tabela_pol.min(), tabela_pol.max(), 100)
+# density = kde(x)
 
-# Oblicz kurtozę
-kurtoza = kurtosis(tabela_pol)
+# # Oblicz kurtozę
+# kurtoza = kurtosis(tabela_pol)
 
-print("Kurtoza:", kurtoza)
+# print("Kurtoza:", kurtoza)
 
-# Wyświetl wykres
-plt.plot(x, density, color='blue', label='Krzywa gęstości')
-plt.hist(tabela_pol, bins='auto', density=True, alpha=0.5, color='gray', label='Histogram')
-plt.show()                
+# # Wyświetl wykres
+# plt.plot(x, density, color='blue', label='Krzywa gęstości')
+# plt.hist(tabela_pol, bins='auto', density=True, alpha=0.5, color='gray', label='Histogram')
+# plt.show()                
 
-tabela_pol.plot(kind='box', subplots=True,layout=(3,3),sharex=False,sharey=False)
-plt.show()
+# tabela_pol.plot(kind='box', subplots=True,layout=(3,3),sharex=False,sharey=False)
+# plt.show()
 

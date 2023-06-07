@@ -45,11 +45,25 @@ X - Wydatki na budownictwo
 3 pomysl: 
 
 Bezrobocie - to co wczesniej
-Poszkodowani - to co wczesniej
 Dochod - Dochod w powiecie na 1 mieszkanca
-Wydatki - Wydatki w powiecie na 1 mieszkanca
+Drogi ------ Drogi gminne w powiecie
 Wskaznik obciazenia demograficznego -- ludnosc w wieku nieprodukcyjnym na 100 osob w wieku produkcyjnym
-Przyrost naturalny ---- Przyrost naturalny zwykly                   ---- Poprawione zostaly
-Przyrost naturalny ---- Przyrost naturalny/1000 mieszkancow 
-Przestepstwa ----- Poprawione zostaly
+Poszkodowani - to co wczesniej
+Przestepstwa ----- Poprawione 
+Przyrost naturalny ----  Przyrost naturalny zwykly                   ---- Poprawione zostaly
+Przyrost naturalny1000 ---- Przyrost naturalny/1000 mieszkancow 
 Samobojstwa --- Ilosc popelnionych samobojow
+Wydatki - Wydatki w powiecie na 1 mieszkanca
+Wypadki ---- Ofiary smiertelne na 100 wypadkow
+
+X1: 2,7      - X2,x6,x8,x9,x10,x11
+X2: 2,3      - x1,x3,x6,x8,x9,x11,
+X3: 1,7
+X4: 1,7
+X5: 1,2
+X6: 2,6        -
+X7: 1,4 
+X8: 1,9
+X9: 2
+X10: 2,3
+X11: 1,6
