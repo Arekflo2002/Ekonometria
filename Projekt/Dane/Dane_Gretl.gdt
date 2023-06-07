@@ -2,29 +2,22 @@
 <!DOCTYPE gretldata SYSTEM "gretldata.dtd">
 
 <gretldata version="1.4" name="Dane_Gretl" frequency="1" startobs="1" endobs="73" type="cross-section">
-<description>Zaimportowano dane z pliku Excel 'Tabela_polaczona.xlsx', 2023-06-03 18:26
+<description>Zaimportowano dane z pliku Excel 'tabela_polaczona.xlsx', 2023-06-07 03:21
 </description>
 <variables count="7">
 <variable name="Y"
- label="Średnie Wynagrodzenie brutto"
 />
 <variable name="X1"
- label="Emisja S02 na 1 mieszkanca"
 />
 <variable name="X2"
- label="Przestępstwa stwierdzone przez Policję ogółem na 1000 mieszkańców"
 />
 <variable name="X3"
- label="Nakłady inwestycyjne w przedsiębiorswtach na 1 mieszkańca"
 />
 <variable name="X4"
- label="Poszkodowani w wypadkach przy pracy na 1000 pracujących"
 />
 <variable name="X5"
- label="Zgłoszenia wynalazków w URRP na 1 mln. mieszkancow"
 />
 <variable name="X6"
- label="Stopa bezrobocia"
 />
 </variables>
 <observations count="73" labels="false">

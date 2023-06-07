@@ -1,0 +1,376 @@
+#Metoda Hellwiga
+#==================================================================
+#==================================================================
+
+
+# Ustawienie danych
+
+# Tworznie kombinacji
+list K1 = X2   
+list K2 = X3
+list K3 = X5
+list K4 = X2 X3
+list K5 = X2 X5
+list K6 = X3 X5
+list K7 = X2 X3 X5
+
+function scalar mianownik_indwydiulanej_p(series Xi, list lista)
+    # Ta funkcja sluzy jak nazwa wskazuje do policzenia mianownika indywidualnej pojemnosci nosnikow dla danego Xi podzbioru Si, gdzie lista to podzbior Si
+    
+    # Skalar reprezentujacy sume mianownika 
+    scalar suma = 0
+    
+    # Petla przechodzaca przez podzbior Si i liczaca wspolczynnik korelacji pomiedzy I-tym a J-tym elementem podzbioru 
+    loop foreach Xj lista 
+        # Wsp korelacji
+        r = corr(Xi,lista.$Xj)
+        # Powiekszenie sumy o wsp korelacji
+        suma = suma + abs(r)
+        
+    endloop
+    # Zwrocenie wartosci mianownika dla danego Xi
+    return suma 
+
+    
+end function
+    
+
+
+
+function scalar pojemnosc_integralna(list lista,series Y)
+    # Lista zawiera podzbior Si, w ktorym znajduja sie X1 ... Xi
+    
+    scalar pojemnosc_int = 0
+
+    # Tworze petle ktora "przejdzie " przez wszystkie elementy 
+    loop foreach i lista
+
+        # Licze licznik indwydidualnej pojemnosci 
+        licznik = corr(lista.$i,Y)
+        licznik = licznik * licznik 
+        
+        # Licze mianownik indywidualnej pojemnosci dla danego Xi w podzbiorze Si   
+        mianownik = mianownik_indwydiulanej_p(lista.$i,lista)
+        
+        if (mianownik == 0)
+            return -1
+        endif
+
+        # Indywidualna pojemnosc
+	    scalar indywidualna_poj =  licznik/mianownik
+        
+        # Dodajemy wyniki aby osiagnac pojemnosc integralna 
+        pojemnosc_int += indywidualna_poj
+
+        
+    endloop
+
+    return pojemnosc_int
+    
+end function
+
+
+# Szukamy najwiekszej pojemnosci integralnej wiec : 
+scalar H_Max = 0 
+
+# Dla kazdej kombinacji obliczamy pojemnosc integralna, i szukamy H Max
+
+H1 = pojemnosc_integralna(K1,Y)
+H_Max = H1
+
+H2 = pojemnosc_integralna(K2,Y)
+if (H2 > H_Max)
+	H_Max = H2 
+endif
+
+H3 = pojemnosc_integralna(K3,Y)
+if (H3 > H_Max)
+	H_Max = H3
+endif
+
+H4 = pojemnosc_integralna(K4,Y)
+if (H4 > H_Max)
+	H_Max = H4 
+endif
+
+H5 = pojemnosc_integralna(K5,Y)
+if (H5 > H_Max)
+	H_Max = H5
+endif
+
+H6 = pojemnosc_integralna(K6,Y)
+if (H6 > H_Max)
+	H_Max = H6 
+endif
+
+H7 = pojemnosc_integralna(K7,Y)
+if (H7 > H_Max)
+	H_Max = H7
+endif	
+
+
+# Znalazlem Maksymalną pojemność integralną, teraz muszę ją dopasować do danej kombinacji podzbiorów
+
+
+if (H1 == H_Max)
+    print "Największą pojemność integralną ma podzbiór: "
+    list K1 print
+endif
+
+
+if (H2==H_Max)
+    print "Największą pojemność integralną ma podzbiór: "
+    list K2 print
+endif
+
+
+if (H3 == H_Max)
+    print "Największą pojemność integralną ma podzbiór: "
+    list K3 print
+endif
+
+
+if (H4 == H_Max)
+    print "Największą pojemność integralną ma podzbiór: "
+    list K4 print
+endif
+
+
+if (H5 == H_Max)
+    print "Największą pojemność integralną ma podzbiór: "
+    list K5 print
+endif
+
+
+if (H6 == H_Max)
+    print "Największą pojemność integralną ma podzbiór: "
+    list K6 print
+endif	
+
+if (H7 == H_Max)
+    print "Największą pojemność integralną ma podzbiór: "
+    list K7 print
+endif	
+print "Największa pojemność integralna wynosi: "
+print H_Max
+
+#==================================================================
+#==================================================================
+# Koniec Metody Hellwiga
+
+
+
+#Efekt Katalizy 
+#==================================================================
+#==================================================================
+
+
+# Ustalenie danych 
+list xlist = X2 X3 X5
+
+
+#Hellwig===================
+function scalar helwig(series y, list xlist)
+    # Funckja Hellwiga udostpnienia w pliku Laboratorium 5, będzie sluzyla do obliczenia natezenia efektu katalizy 
+	H=0
+	loop foreach j xlist --quiet
+        h=(corr(xlist.$j,y)^2)
+        s=0
+        loop foreach k xlist --quiet
+            s+=abs(corr(xlist.$j,xlist.$k))
+        endloop
+        h=h/s
+        H+=h
+	endloop
+    
+	return H
+    
+end function
+#koniec hellwiga============
+
+
+function scalar silnia(scalar x)
+    # Ta funkcja sluzy do liczenia silny z podanego x
+    scalar suma = 1
+    loop i = 1..x
+        suma = suma * i
+    endloop
+    
+    return suma 
+
+end function
+
+function scalar dwumian_Newtona(scalar n)
+    # To jest funkcja obliczająca dwumian Newtona na podstawie podanej liczbie n
+    # I zaloznej liczbie k = 2.
+    
+    scalar licznik = silnia(n)
+    
+    # Wiemy ze k = 2 wiec podstawiamy
+    scalar mianownik = 2* silnia(n-2)
+    
+    # Obliczamy dwumian
+    dwumian = licznik/mianownik
+    
+    return dwumian
+end function
+
+
+function matrix para_korelacyjna_R0(series Y, list xlist)
+    # Funckja slużąca do obliczenia macierzy RO z pary korelacyjnej 
+    
+    # Obliczamy dlugosc xlisty
+    n = nelem(xlist)
+    
+    # Tworzymy macierz o dlugosci n, która bedzie przetrzymywac korelacji miedzy Xi a Y
+    matrix R0 = zeros(n,1)
+    
+    # Liczymy R0 
+    loop i = 1..n
+        R0[i] = corr(xlist[i], Y)
+    endloop
+
+    return R0
+end function
+
+function matrix para_korelacyjna_R(series Y, list xlist)
+    # Funckja slużąca do obliczenia macierzy R z pary korelacyjnej
+     
+    # Obliczamy dlugosc xlisty
+    n = nelem(xlist)
+    # Liczymy na ile kombinacji da sie policzyc korelacji miedy Xi a Xj
+    liczba_kombinacji_xlist = dwumian_Newtona(n)
+    
+    # Zakladam ze w i-tym wierszu macierzy beda przechowywane wszystkie korelacji miedzy Xi a Xj itd... 
+    matrix R = zeros(liczba_kombinacji_xlist,n)
+    
+    # Liczymy R
+    loop i = 1..n
+        loop j = 1..liczba_kombinacji_xlist
+            R[i,j] = corr(xlist[i],xlist[j])
+        endloop
+    endloop
+    
+    return R
+end function
+
+function scalar znajdowanie_indeksu(matrix macierz,scalar obecny_indeks)
+    # Funkcja znajdujaca index minimalnej wartosci w podanej macierzy zaczynajac od podanego indeksu na ktorym skonczylismy segregowanie
+    scalar minn = 1 # Maskymalna wartosc wsp. 
+    scalar indeks = 0 
+    loop i = obecny_indeks..nelem(macierz)
+        if (macierz[i] < minn)
+            minn = macierz[i]
+            indeks = i
+        endif
+    endloop
+    
+    return indeks
+end function
+
+
+function void szukanie_katalizatora(matrix R, matrix R0)
+    
+    # Funkcja szukajaca katalizatora 
+    scalar czy_jest_katalizator = 0 
+    # Iterujemy najpierw po wierszach
+    loop i_wiersz = 1..nelem(R0)
+        
+        # Teraz iterujmy po kolumnach
+        loop j_kolumna = i_wiersz+1..nelem(R[i_wiersz,])
+            
+            # Warunek zeby zmienna byla katalizatorem 
+            if (R[i_wiersz,j_kolumna]<0 || R[i_wiersz,j_kolumna] > (R0[i_wiersz]/R0[j_kolumna]))
+                czy_jest_katalizator = 1
+                printf "Dla zmiennych {%s,%s} zmienna %s jest katalizatorem\n",sprintf("X%d",j_kolumna),sprintf("X%d",i_wiersz),sprintf("X%d",j_kolumna)
+            endif
+        endloop
+    endloop
+    
+    # Jezeli nie bylo zadnego katalizatora dajemy odpowiedni komunikat 
+    if (czy_jest_katalizator == 0)
+        printf "Dla danej listy zmiennych objaśniających nie występuje żaden katalizator\n"
+    endif
+    
+end function
+ 
+
+function void algorytm_efektu_katalizy(series Y,list xlist)
+    
+    # Obliczamy R0
+    matrix R0 = para_korelacyjna_R0(Y,xlist)
+    # Obliczamy R
+    matrix R = para_korelacyjna_R(Y,xlist)
+    # Obliczam dlugosc listy xlist
+    n = nelem(xlist)
+    
+    # Jezeli wspolczynnik ri w macierzy R0 jest mniejszy niz zero nalezy podmienic zmienną Xi na -Xi,
+    # ominie tę zamiane przez pomnozenie kazdego współczynnika korelacji w macierzy R który zawiera
+    # zmienna Xi przez (-1)
+
+    loop i = 1..n
+        if (R0[i] < 0)
+            # Najpierw mnozymy wsp. w macierzy R0
+            R0[i] = R0[i] * (-1)
+            # Następnie mnoze caly i-ty wiersz, bo zawiera zmienna Xi
+            R[,i] = R[,i] *(-1)
+            # Na koniec mnoze cala i-ta kolumne bo zawiera zmienna Xi
+            R[i,] = R[i,] *(-1)
+        endif 
+    endloop
+    
+    
+    # Czyli mamy macierz R0 z dodatnimi wspolczynnikami
+    # Teraz musimy uporządkować je rosnąco
+    loop i = 1..n
+        # Sprawdzamy czy dany wspolczynnik jest na swoim miejscu 
+        scalar powinno_byc = znajdowanie_indeksu(R0,i)
+        if (powinno_byc == i)
+            # Jezeli jest to kontynujemy i idziemy do nastepnego elementu
+            continue 
+        endif
+        
+        # Jeżeli nie to musimy przeniesc odpowiednie wiersze i kolumny 
+        # Zaczne od macierzy R
+        # Tworze zmienna ktora na chwile przechowa mi kolumne 
+        temp_kolumna = R[i,] 
+        # Teraz czas przeniesienia danej kolumny tak gdzie ma byc
+        R[i,] = R[powinno_byc,]
+        R[powinno_byc,] = temp_kolumna
+        
+        # Teraz to samo tylko w wierszach
+        temp_wiersz = R[,i]
+        # Czas przeniesienia
+        R[,i] = R[,powinno_byc]
+        R[,powinno_byc] = temp_wiersz
+        
+        # Teraz Trzeba przeniesc w macierzy R0 
+        temp_wartosc = R0[i]
+        R0[i] = R0[powinno_byc]
+        R0[powinno_byc] = temp_wartosc
+    endloop
+
+    # Podsumowująć, mam teraz (R,R0) spelniajace zalozenia, ze sa regularna para korelacji 
+    # Wiec mozna zaczac poszukiwania katalizatora 
+    szukanie_katalizatora(R,R0)
+    
+    # Teraz wystarczy wyznaczyc natężenie katalizy 
+    # Posiadam wsp. determinacji z modelu który tworze 
+    ols Y const xlist --quiet 
+    scalar nat_efektu_katalizy = $rsq - helwig(Y,xlist)
+    
+    printf "\nNatężenie efektu katalizy dla tych danych wynosi: %f\n",nat_efektu_katalizy 
+    
+end function
+
+
+algorytm_efektu_katalizy(Y,xlist)
+
+
+#==================================================================
+#==================================================================
+# Koniec Efekt Katalizy
+
+
+
+
