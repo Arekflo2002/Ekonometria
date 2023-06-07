@@ -44,7 +44,6 @@ def remove_outliers_and_create_dataframe(df):
     return filtered_data
 
 def filtering(data):
-    data += 2000
     q1 = np.percentile(data, 25)
     q3 = np.percentile(data, 75)
     iqr = q3 - q1

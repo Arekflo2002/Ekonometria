@@ -42,3 +42,14 @@ X - Poziom urbanizacji
 X - Wskaznik migracji 
 X - Wydatki na budownictwo 
 
+3 pomysl: 
+
+Bezrobocie - to co wczesniej
+Poszkodowani - to co wczesniej
+Dochod - Dochod w powiecie na 1 mieszkanca
+Wydatki - Wydatki w powiecie na 1 mieszkanca
+Wskaznik obciazenia demograficznego -- ludnosc w wieku nieprodukcyjnym na 100 osob w wieku produkcyjnym
+Przyrost naturalny ---- Przyrost naturalny zwykly                   ---- Poprawione zostaly
+Przyrost naturalny ---- Przyrost naturalny/1000 mieszkancow 
+Przestepstwa ----- Poprawione zostaly
+Samobojstwa --- Ilosc popelnionych samobojow
