@@ -6,13 +6,13 @@
 # Ustawienie danych
 
 # Tworznie kombinacji
-list K1 = X2   
+list K1 = X1   
 list K2 = X3
-list K3 = X5
-list K4 = X2 X3
-list K5 = X2 X5
-list K6 = X3 X5
-list K7 = X2 X3 X5
+list K3 = X4
+list K4 = X1 X3
+list K5 = X1 X4
+list K6 = X3 X4
+list K7 = X1 X3 X4
 
 function scalar mianownik_indwydiulanej_p(series Xi, list lista)
     # Ta funkcja sluzy jak nazwa wskazuje do policzenia mianownika indywidualnej pojemnosci nosnikow dla danego Xi podzbioru Si, gdzie lista to podzbior Si
@@ -166,7 +166,7 @@ print H_Max
 
 
 # Ustalenie danych 
-list xlist = X2 X3 X5
+list xlist = X3 X4
 
 
 #Hellwig===================
@@ -239,7 +239,7 @@ function matrix para_korelacyjna_R(series Y, list xlist)
     # Obliczamy dlugosc xlisty
     n = nelem(xlist)
     # Liczymy na ile kombinacji da sie policzyc korelacji miedy Xi a Xj
-    liczba_kombinacji_xlist = dwumian_Newtona(n)
+    liczba_kombinacji_xlist = 2
     
     # Zakladam ze w i-tym wierszu macierzy beda przechowywane wszystkie korelacji miedzy Xi a Xj itd... 
     matrix R = zeros(liczba_kombinacji_xlist,n)
