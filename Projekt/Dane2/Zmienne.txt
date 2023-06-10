@@ -24,7 +24,6 @@ Potencjalne zmienne:
 
 1.Bezrobocie
 2.Cieplownictwo 
-3.DochodyPow  !
 4.Malzenstwa -- X1
 5.Naklady  -- X2
 6.Poszkodowani --- Y1
@@ -38,24 +37,3 @@ Potencjalne zmienne:
 
 
 MODEL: X6 ----> X4,X5
-
-
-
-
-# Funckja do wyrzucania danych odstajacyhc
-def remove_outliers_and_create_dataframe(df):
-    for column in df.columns[1:]:
-        df = filtering(df,column)    
-
-    return df
-
-def filtering(tabela,nazwa):
-    data = tabela[nazwa]
-    q1 = np.percentile(data, 25)
-    q3 = np.percentile(data, 75)
-    iqr = q3 - q1
-    lower_bound = q1 - 1.5 * iqr
-    upper_bound = q3 + 1.5 * iqr
-    tabela = tabela[tabela[nazwa].between(lower_bound, upper_bound)]
-    return tabela
-    
