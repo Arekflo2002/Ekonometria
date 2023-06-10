@@ -1,0 +1,61 @@
+POWROT DO KORZENI ROBIE Podregiony:
+
+
+ 1. Malzenstwa  ---------- Malzenstwa rok ogolem
+ 2. DochodyPow ----Dochody w powiecie na 1 mieskzanca 
+ 3. Cieplownictwo ----- ogolem - ogolem - kotlownie ogolem
+ 4. ZasMieszk - Zasoby mieszkanowie wskazniki - Liczba mieszkan na 1000 mieszkancow
+ 5. Pielegniarki ------------------ Pielegniarki na 10 tys ludnosci pracujace
+ 6. Naklady ----------- Naklady wskazniki inwestycyjne w przedsiebieortwach ogolem na 1 mieszkanca
+ 7. Poszkodowani ------------ Poszkodowani w pracy ogolem ogolem
+ 8. SwiadczeniaRodz ----------- Swiadaczenia rodzinne ogoiopnie z dodatkami 
+ 9. Przestepstwa -------------- Przestepstwa ogolne stwierdzone przez policje ogolne 
+ 10. Wynagrodzenie ----- Wynagrodzenie brutto 
+ 11. Zaludnienie ------ Gestosc zaludnienia wskazniki zmiana ludnosci na 1000 mieszkancow
+ 12. PrzyNat --------- Ruch naturalny wg plci przyrost naturalny
+ 13. Samobojstwa --------- Osoby w zamach samobojczych ogolnie ogolnie 
+ 14. Bezrobocie -------- Stopa bezrobocia wskazniki rejestrowanego ogolnie
+Potencjalne zmienne:
+
+- Podmioty gospodarki narodowej - wskazniki 
+- Powierzchnia w km2
+    Budownictwo mieszkaniowe – wskaźniki
+
+
+1.Bezrobocie
+2.Cieplownictwo 
+3.DochodyPow  !
+4.Malzenstwa -- X1
+5.Naklady  -- X2
+6.Poszkodowani --- Y1
+7.Przestepstwa 
+8.PrzyNat 
+9.Samobojstwa
+10.SwiadczeniaRodz
+11.Wynagrodzenie  ! 
+12.Zaludnienie 
+13.ZasMieszk   !
+
+
+MODEL: X6 ----> X4,X5
+
+
+
+
+# Funckja do wyrzucania danych odstajacyhc
+def remove_outliers_and_create_dataframe(df):
+    for column in df.columns[1:]:
+        df = filtering(df,column)    
+
+    return df
+
+def filtering(tabela,nazwa):
+    data = tabela[nazwa]
+    q1 = np.percentile(data, 25)
+    q3 = np.percentile(data, 75)
+    iqr = q3 - q1
+    lower_bound = q1 - 1.5 * iqr
+    upper_bound = q3 + 1.5 * iqr
+    tabela = tabela[tabela[nazwa].between(lower_bound, upper_bound)]
+    return tabela
+    
