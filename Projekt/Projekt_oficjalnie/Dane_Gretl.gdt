@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gretldata SYSTEM "gretldata.dtd">
+
+<gretldata version="1.4" name="Dane_GRETL" frequency="1" startobs="1" endobs="63" type="cross-section">
+<description>Zaimportowano dane z pliku Excel 'Tabela_zapasowa.xlsx', 2023-06-10 06:35
+</description>
+<variables count="5">
+<variable name="Y"
+ label="Liczba osób poszkodowanych w wypadkach przy pracy"
+/>
+<variable name="X1"
+ label="Stopa Bezrobocia"
+/>
+<variable name="X2"
+ label="Liczba kotłowni"
+/>
+<variable name="X3"
+ label="Liczba zawartych małżeństw"
+/>
+<variable name="X4"
+ label="Nakłady inwestycyjne w przedsiebiorstwach na 1 mieszkanca"
+/>
+</variables>
+<observations count="63" labels="false">
+<obs>813 4.8 665 3236 2944 </obs>
+<obs>1655 2.8 455 2644 6055 </obs>
+<obs>669 7.2 508 2275 2695 </obs>
+<obs>770 6.5 391 2039 4635 </obs>
+<obs>519 6.9 367 1591 2825 </obs>
+<obs>298 7 227 2849 2589 </obs>
+<obs>1190 4.1 831 1832 5118 </obs>
+<obs>687 6.8 307 2116 2875 </obs>
+<obs>656 5.6 409 1919 3252 </obs>
+<obs>1228 4 391 3279 7665 </obs>
+<obs>1316 2.6 793 2790 5655 </obs>
+<obs>1364 4.6 490 2565 4494 </obs>
+<obs>1274 5.7 513 1738 5157 </obs>
+<obs>570 2.8 405 1595 7001 </obs>
+<obs>1180 4.5 577 2505 5661 </obs>
+<obs>1332 5.4 735 2931 4815 </obs>
+<obs>998 3.1 531 2916 5641 </obs>
+<obs>1228 5.6 463 2585 4265 </obs>
+<obs>874 3.3 677 1717 4504 </obs>
+<obs>1629 4.9 458 3025 4317 </obs>
+<obs>1584 2.3 465 2742 6385 </obs>
+<obs>798 1.6 290 1437 2731 </obs>
+<obs>517 8.9 603 1608 3125 </obs>
+<obs>824 12.5 648 1955 5429 </obs>
+<obs>875 3.3 426 2026 6209 </obs>
+<obs>858 6.8 722 2082 3833 </obs>
+<obs>1182 7.2 555 1873 7303 </obs>
+<obs>1019 6.3 431 2293 3691 </obs>
+<obs>1453 7.9 794 2730 4851 </obs>
+<obs>1731 4.8 660 3791 4339 </obs>
+<obs>510 1.9 451 1405 2988 </obs>
+<obs>1341 8.8 359 2476 5360 </obs>
+<obs>1806 5.3 428 3341 3233 </obs>
+<obs>683 3.9 187 1524 3440 </obs>
+<obs>434 10.8 555 1475 3629 </obs>
+<obs>672 11.5 323 1475 3846 </obs>
+<obs>307 8.8 325 763 3170 </obs>
+<obs>853 5.4 589 3028 2798 </obs>
+<obs>713 8.5 192 1395 2785 </obs>
+<obs>670 6.9 440 1768 2861 </obs>
+<obs>1633 2.7 348 3906 4502 </obs>
+<obs>464 8.8 622 993 4722 </obs>
+<obs>914 9.5 357 2158 4950 </obs>
+<obs>403 11.7 338 1104 4217 </obs>
+<obs>1095 7.8 419 2343 3313 </obs>
+<obs>616 6 305 1549 3577 </obs>
+<obs>1677 5.8 318 2959 3314 </obs>
+<obs>828 6.3 478 2494 2048 </obs>
+<obs>633 6.7 435 1902 2265 </obs>
+<obs>636 6.1 226 1489 1573 </obs>
+<obs>1374 8.8 447 2964 3973 </obs>
+<obs>421 8.4 433 2017 3923 </obs>
+<obs>341 10.5 387 1262 2859 </obs>
+<obs>533 11.8 612 2525 4736 </obs>
+<obs>1505 6.5 510 3121 4663 </obs>
+<obs>594 8.1 666 2106 3719 </obs>
+<obs>645 11.1 557 2015 3547 </obs>
+<obs>432 8.7 445 1681 5123 </obs>
+<obs>1026 8.1 316 2932 2996 </obs>
+<obs>745 7.6 207 2622 2969 </obs>
+<obs>988 7.7 734 2218 6907 </obs>
+<obs>739 8.5 502 1648 2933 </obs>
+<obs>383 1.7 537 1145 3665 </obs>
+</observations>
+</gretldata>

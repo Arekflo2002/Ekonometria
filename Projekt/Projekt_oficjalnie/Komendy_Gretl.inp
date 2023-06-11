@@ -1,3 +1,10 @@
+# Są to skrypty przesłane w ramach zajęć laboratoryjnych z ekonometrii
+# wykorzystałem je w projekcie, ponieważ zostały sprawdzone pod kątem poprawności
+
+# wykorzystuje skrypt do zbadania efektu katalizy oraz do metody Hellwiga, 
+# reszta testów występujących w projekcie odbyła się przeze mnie manualnie 
+# poprzez opcje w gretlu, poniewaz bylo to wygodniejsze
+
 #Metoda Hellwiga
 #==================================================================
 #==================================================================
